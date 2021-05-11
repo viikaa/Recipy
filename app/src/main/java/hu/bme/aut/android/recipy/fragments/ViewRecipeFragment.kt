@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import hu.bme.aut.android.recipy.R
+import hu.bme.aut.android.recipy.data.Recipe
 import hu.bme.aut.android.recipy.data.RecipeCategory
 import hu.bme.aut.android.recipy.data.RecipeViewModel
 import hu.bme.aut.android.recipy.databinding.FragmentViewRecipeBinding
@@ -25,6 +28,7 @@ class ViewRecipeFragment : Fragment() {
 
     private lateinit var binding : FragmentViewRecipeBinding
     private val recipeViewModel : RecipeViewModel by activityViewModels()
+    private lateinit var currentRecipe : Recipe
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,23 +38,34 @@ class ViewRecipeFragment : Fragment() {
         val id = arguments?.getLong("id")
         if(id != null) showRecipeData(id)
 
+        binding.ibEdit.setOnClickListener {
+            val idBundle = bundleOf("id" to id)
+            findNavController().navigate(R.id.action_viewRecipeFragment_to_EditRecipeFragment, idBundle)
+        }
+
+        binding.ibRemove.setOnClickListener {
+            recipeViewModel.delete(currentRecipe)
+            findNavController().navigate(R.id.action_viewRecipeFragment_to_RecipeListFragment)
+        }
+
         return binding.root
     }
 
     private fun showRecipeData(id: Long) {
-        val recipe = recipeViewModel.getById(id)
+        currentRecipe = recipeViewModel.getById(id)
         val categories = resources.getStringArray(R.array.categories)
 
-        binding.tvName.text = recipe.name
-        binding.tvAuthor.text = recipe.author
-        binding.tvTime.text = recipe.reqiredTime.toString()
-        binding.tvCategory.text = when(recipe.category){
+        binding.tvName.text = currentRecipe.name
+        binding.tvAuthor.text = currentRecipe.author
+        binding.tvTime.text = currentRecipe.reqiredTime.toString()
+        binding.tvCategory.text = when(currentRecipe.category){
             RecipeCategory.BREAKFAST -> categories[0]
             RecipeCategory.LUNCH -> categories[1]
             RecipeCategory.DINNER -> categories[2]
             RecipeCategory.DESSERT -> categories[3]
+            else -> categories[1]
         }
-        binding.tvRecipe.text = recipe.description
+        binding.tvRecipe.text = currentRecipe.description
 
     }
 

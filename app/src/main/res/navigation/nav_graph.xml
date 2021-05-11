@@ -32,5 +32,12 @@
         android:id="@+id/viewRecipeFragment"
         android:name="hu.bme.aut.android.recipy.fragments.ViewRecipeFragment"
         android:label="ViewRecipeFragment"
-        tools:layout="@layout/fragment_view_recipe"/>
+        tools:layout="@layout/fragment_view_recipe">
+        <action
+            android:id="@+id/action_viewRecipeFragment_to_EditRecipeFragment"
+            app:destination="@id/EditRecipeFragment" />
+        <action
+            android:id="@+id/action_viewRecipeFragment_to_RecipeListFragment"
+            app:destination="@id/RecipeListFragment" />
+    </fragment>
 </navigation>

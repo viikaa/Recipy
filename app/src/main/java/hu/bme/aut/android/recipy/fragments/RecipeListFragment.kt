@@ -64,7 +64,6 @@ class RecipeListFragment :
 
     override fun onItemRemoved(recipe: Recipe, position: Int) {
         recipeViewModel.delete(recipe)
-        adapter.remove(recipe, position)
     }
 
     override fun onItemClick(id: Long) {
