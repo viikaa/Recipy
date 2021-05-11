@@ -44,8 +44,10 @@ class EditRecipeFragment :
         binding = FragmentEditRecipeBinding.inflate(inflater, container, false)
 
         binding.btnAddRecipe.setOnClickListener {
-            handleSave()
-            findNavController().navigate(R.id.action_EditRecipeFragment_to_RecipeListFragment)
+            if(isValid()){
+                handleSave()
+                findNavController().navigate(R.id.action_EditRecipeFragment_to_RecipeListFragment)
+            }
         }
 
         val id = arguments?.getLong("id")
@@ -54,12 +56,19 @@ class EditRecipeFragment :
         return binding.root
     }
 
+    private fun isValid(): Boolean{
+        return  binding.etName.text.isNotEmpty() &&
+                binding.etAuthor.text.isNotEmpty() &&
+                binding.etTime.text.isNotEmpty()
+    }
+
     private fun handleSave(){
         if(currentRecipe == null)
             recipeViewModel.insert(getRecipe())
         else{
             val recipeToUpdate = getRecipe()
             recipeToUpdate.id = currentRecipe!!.id
+            recipeToUpdate.rating = currentRecipe!!.rating
             recipeViewModel.update(recipeToUpdate)
         }
     }

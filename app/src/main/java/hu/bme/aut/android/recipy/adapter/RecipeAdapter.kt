@@ -26,10 +26,10 @@ class  RecipeAdapter(
         holder.binding.root.background.setTint(colors.first)
         holder.binding.tvCategory.text = recipe.category.name
         holder.binding.cvCategory.background.setTint(colors.second)
-//        holder.binding.ivIcon.setImageResource(getImageResource(shoppingItem.category))
         holder.binding.tvName.text = recipe.name
         holder.binding.tvAuthor.text = recipe.author
         holder.binding.tvTime.text = context.resources.getString(R.string.minutes, recipe.reqiredTime)
+        holder.binding.tvRating.text = recipe.rating.toString()
 
         holder.binding.root.setOnClickListener {
             listener.onItemClick(recipe.id)
@@ -39,6 +39,9 @@ class  RecipeAdapter(
         }
         holder.binding.ibEdit.setOnClickListener {
             listener.onItemEdit(recipe.id)
+        }
+        holder.binding.ibRate.setOnClickListener {
+            listener.onItemRate(recipe.id)
         }
 
     }
@@ -72,9 +75,9 @@ class  RecipeAdapter(
 
     interface RecipeClickListener {
         fun onItemClick(id: Long)
-        fun onItemChanged(item: Recipe)
         fun onItemRemoved(item: Recipe, position: Int)
         fun onItemEdit(id: Long)
+        fun onItemRate(id: Long)
     }
 
     inner class RecipeViewHolder(val binding: ItemRecipeListBinding) :

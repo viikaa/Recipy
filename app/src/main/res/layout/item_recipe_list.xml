@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    card_view:cardCornerRadius="10dp">
+    card_view:cardCornerRadius="10dp"
+    tools:backgroundTint="@color/breakfast">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
-                android:backgroundTint="@color/black"
+                tools:backgroundTint="@color/breakfast_category"
                 card_view:cardCornerRadius="5dp">
                 <TextView
                     android:id="@+id/tvCategory"
@@ -91,8 +92,31 @@
                     android:textColor="@color/white"
                     tools:text="50 perc" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_star_rate_24" />
+                <TextView
+                    android:id="@+id/tvRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    tools:text="4.7" />
+            </LinearLayout>
 
         </LinearLayout>
+        <ImageButton
+            android:id="@+id/ibRate"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_baseline_star_half_24" />
 
         <ImageButton
             android:id="@+id/ibEdit"

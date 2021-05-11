@@ -66,6 +66,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/ic_person_24"
                 app:tint="@color/black" />
             <TextView
@@ -98,6 +99,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/ic_required_time_24"
                 app:tint="@color/black" />
             <TextView
@@ -130,6 +132,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/ic_baseline_restaurant_24"
                 app:tint="@color/black" />
             <TextView
@@ -162,6 +165,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/ic_baseline_auto_stories_24"
                 app:tint="@color/black" />
             <TextView

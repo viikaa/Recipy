@@ -7,27 +7,6 @@ import androidx.room.TypeConverter
 
 enum class RecipeCategory {
     BREAKFAST, LUNCH, DINNER, DESSERT;
-
-//    companion object {
-//        @TypeConverter
-//        @JvmStatic
-//        fun getByOrdinal(ordinal: Int): RecipeCategory? {
-//            var ret: RecipeCategory? = null
-//            for (cat in values()) {
-//                if (cat.ordinal == ordinal) {
-//                    ret = cat
-//                    break
-//                }
-//            }
-//            return ret
-//        }
-//
-//        @TypeConverter
-//        @JvmStatic
-//        fun toInt(category: RecipeCategory): Int {
-//            return category.ordinal
-//        }
-//    }
 }
 
 @Entity(tableName = "recipe")
@@ -37,5 +16,6 @@ data class Recipe (
     @ColumnInfo(name = "category") var category: RecipeCategory,
     @ColumnInfo(name = "author") var author: String,
     @ColumnInfo(name = "required_time") var reqiredTime: Int = 0,
-    @ColumnInfo(name = "description") var description: String = ""
+    @ColumnInfo(name = "description") var description: String = "",
+    @ColumnInfo(name = "rating") var rating: Int = 0
 )

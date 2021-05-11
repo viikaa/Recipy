@@ -35,6 +35,6 @@ ViewRecipeFragment
 	- [ ] törlés előtt dialogfragment
 
 RecipeList
-	- [ ] kategória kiírása itemre
-	- [ ] szín módosítása kategória szerint
+	- [x] kategória kiírása itemre
+	- [x] szín módosítása kategória szerint
 	- [ ] törlés előtt dialogfragment

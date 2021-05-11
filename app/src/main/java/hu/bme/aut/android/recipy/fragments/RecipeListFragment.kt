@@ -15,6 +15,7 @@ import hu.bme.aut.android.recipy.adapter.RecipeAdapter
 import hu.bme.aut.android.recipy.data.Recipe
 import hu.bme.aut.android.recipy.data.RecipeViewModel
 import hu.bme.aut.android.recipy.databinding.FragmentRecipeListBinding
+import hu.bme.aut.android.shoppinglist.fragments.RatingFragment
 import kotlinx.coroutines.*
 
 /**
@@ -37,7 +38,6 @@ class RecipeListFragment :
             findNavController().navigate(R.id.action_RecipeListFragment_to_EditRecipeFragment)
         }
 
-
         initRecyclerView()
 
         recipeViewModel.getLiveData().observe(viewLifecycleOwner, Observer{
@@ -58,8 +58,10 @@ class RecipeListFragment :
         findNavController().navigate(R.id.action_RecipeListFragment_to_EditRecipeFragment, idBundle)
     }
 
-    override fun onItemChanged(item: Recipe) {
-        TODO("Not yet implemented")
+    override fun onItemRate(id: Long) {
+        val ratingFragment = RatingFragment()
+        ratingFragment.arguments = bundleOf("id" to id)
+        ratingFragment.show(requireActivity().supportFragmentManager, RatingFragment.TAG)
     }
 
     override fun onItemRemoved(recipe: Recipe, position: Int) {
