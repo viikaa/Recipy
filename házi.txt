@@ -1,0 +1,27 @@
+RECEPTKEZELŐ
+
+	Technológiák
+		- UI
+		- RecyclerView
+		- ViewBinding
+		- Room
+		- Fragmentek
+		- NavigationComponent
+		- ViewModel
+
+	Képernyők (4 db különböző)
+		- recept lista
+		- recept felvétele / szerkesztése
+		- recept megtekintése (többlet info a listához képest)
+
+LAYOUT
+	- item_recipe_list
+		[ ] ratingbar (https://www.geeksforgeeks.org/ratingbar-in-kotlin/)
+
+MODELL (4 tulajdonság)
+	- név
+	- szerző
+	- elkészülési idő
+	- category, és akkor ugyanúgy képek hozzá
+	- (detals) értékelés (ha van rating bar)
+	- (details) leírás

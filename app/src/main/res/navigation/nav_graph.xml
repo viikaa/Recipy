@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/RecipeListFragment">
+
+    <fragment
+        android:id="@+id/RecipeListFragment"
+        android:name="hu.bme.aut.android.recipy.fragments.RecipeListFragment"
+        android:label="@string/recipe_list_fragment_label"
+        tools:layout="@layout/fragment_recipe_list">
+
+        <action
+            android:id="@+id/action_RecipeListFragment_to_EditRecipeFragment"
+            app:destination="@id/EditRecipeFragment" />
+        <action
+            android:id="@+id/action_RecipeListFragment_to_viewRecipeFragment"
+            app:destination="@id/viewRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditRecipeFragment"
+        android:name="hu.bme.aut.android.recipy.fragments.EditRecipeFragment"
+        android:label="@string/edit_recipe_fragment_label"
+        tools:layout="@layout/fragment_edit_recipe">
+
+        <action
+            android:id="@+id/action_EditRecipeFragment_to_RecipeListFragment"
+            app:destination="@id/RecipeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewRecipeFragment"
+        android:name="hu.bme.aut.android.recipy.fragments.ViewRecipeFragment"
+        android:label="ViewRecipeFragment"
+        tools:layout="@layout/fragment_view_recipe"/>
+</navigation>
