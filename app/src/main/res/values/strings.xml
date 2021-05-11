@@ -17,6 +17,9 @@
     <string name="etTimeHint">Time</string>
     <string name="etAuthorHint">Author</string>
     <string name="save">Save</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recipe">Recipe</string>
+    <string name="etDescriptionHint">Recipe</string>
 
     <string-array name="categories">
         <item>Breakfast</item>
@@ -24,8 +27,7 @@
         <item>Dinner</item>
         <item>Dessert</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="recipe">Recipe</string>
-    <string name="etDescriptionHint">Recipe</string>
+
+    <string name="minutes">%d minutes</string>
+
 </resources>

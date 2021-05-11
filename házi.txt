@@ -25,3 +25,16 @@ MODELL (4 tulajdonság)
 	- category, és akkor ugyanúgy képek hozzá
 	- (detals) értékelés (ha van rating bar)
 	- (details) leírás
+
+
+---------------------------------------------------------------------------------------------
+
+
+ViewRecipeFragment
+	- [x] perc kiírása
+	- [ ] törlés előtt dialogfragment
+
+RecipeList
+	- [ ] kategória kiírása itemre
+	- [ ] szín módosítása kategória szerint
+	- [ ] törlés előtt dialogfragment

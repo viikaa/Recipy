@@ -48,7 +48,7 @@ class RecipeListFragment :
     }
 
     private fun initRecyclerView() {
-        adapter = RecipeAdapter(this)
+        adapter = RecipeAdapter(this, requireContext())
         binding.rvRecipe.layoutManager = LinearLayoutManager(this.context)
         binding.rvRecipe.adapter = adapter
     }

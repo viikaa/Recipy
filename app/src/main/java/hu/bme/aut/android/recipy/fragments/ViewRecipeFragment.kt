@@ -14,11 +14,6 @@ import hu.bme.aut.android.recipy.data.RecipeCategory
 import hu.bme.aut.android.recipy.data.RecipeViewModel
 import hu.bme.aut.android.recipy.databinding.FragmentViewRecipeBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * A simple [Fragment] subclass.
  * Use the [ViewRecipeFragment.newInstance] factory method to
@@ -57,13 +52,12 @@ class ViewRecipeFragment : Fragment() {
 
         binding.tvName.text = currentRecipe.name
         binding.tvAuthor.text = currentRecipe.author
-        binding.tvTime.text = currentRecipe.reqiredTime.toString()
+        binding.tvTime.text = resources.getString(R.string.minutes, currentRecipe.reqiredTime)
         binding.tvCategory.text = when(currentRecipe.category){
             RecipeCategory.BREAKFAST -> categories[0]
             RecipeCategory.LUNCH -> categories[1]
             RecipeCategory.DINNER -> categories[2]
             RecipeCategory.DESSERT -> categories[3]
-            else -> categories[1]
         }
         binding.tvRecipe.text = currentRecipe.description
 
