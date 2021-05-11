@@ -37,5 +37,5 @@ data class Recipe (
     @ColumnInfo(name = "category") var category: RecipeCategory,
     @ColumnInfo(name = "author") var author: String,
     @ColumnInfo(name = "required_time") var reqiredTime: Int = 0,
-    @ColumnInfo(name = "description") var description: String
+    @ColumnInfo(name = "description") var description: String = ""
 )

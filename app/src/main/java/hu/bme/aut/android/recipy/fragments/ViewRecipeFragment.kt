@@ -50,6 +50,7 @@ class ViewRecipeFragment : Fragment() {
             RecipeCategory.DINNER -> categories[2]
             RecipeCategory.DESSERT -> categories[3]
         }
+        binding.tvRecipe.text = recipe.description
 
     }
 

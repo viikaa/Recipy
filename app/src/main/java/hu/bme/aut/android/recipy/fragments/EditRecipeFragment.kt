@@ -92,7 +92,8 @@ class EditRecipeFragment :
                 else -> RecipeCategory.LUNCH
             },
             author = binding.etAuthor.text.toString(),
-            reqiredTime = binding.etTime.text.toString().toInt()
+            reqiredTime = binding.etTime.text.toString().toInt(),
+            description = binding.etDescription.text.toString()
         )
     }
 }

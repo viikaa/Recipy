@@ -8,184 +8,183 @@
     android:scrollbarStyle="outsideInset">
 
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp">
-
-    <LinearLayout
-        android:id="@+id/llTitle"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:id="@+id/llTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="Mashed potatoes"/>
+
+            <ImageButton
+                android:id="@+id/ibEdit"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"
+                android:tint="@color/black"
+                android:src="@drawable/ic_baseline_edit_24" />
+
+            <ImageButton
+                android:id="@+id/ibRemove"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center_vertical"
+                android:scaleType="fitXY"
+                android:tint="@color/black"
+                android:src="@drawable/ic_baseline_delete_24" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/llTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_person_24"
+                app:tint="@color/black" />
+            <TextView
+                android:id="@+id/tvAuthorLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/author"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/llAuthor"
+            app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"
-            tools:text="Mashed potatoes"/>
+            tools:text="Mari néni"></TextView>
 
-        <ImageButton
-            android:id="@+id/ibEdit"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center_vertical"
-            android:scaleType="fitXY"
-            android:tint="@color/black"
-            android:src="@drawable/ic_baseline_edit_24" />
-
-        <ImageButton
-            android:id="@+id/ibRemove"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:adjustViewBounds="true"
-            android:layout_gravity="center_vertical"
-            android:scaleType="fitXY"
-            android:tint="@color/black"
-            android:src="@drawable/ic_baseline_delete_24" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llAuthor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/llTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/llTime"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_person_24"
-            app:tint="@color/black" />
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_required_time_24"
+                app:tint="@color/black" />
+            <TextView
+                android:id="@+id/tvTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/required_time"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tvAuthorLabel"
+            android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/llTime"
+            app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"
-            android:text="@string/author"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
+            tools:text="15 minutes"></TextView>
 
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/llAuthor"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
-        tools:text="Mari néni"></TextView>
-
-    <LinearLayout
-        android:id="@+id/llTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/llCategory"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_required_time_24"
-            app:tint="@color/black" />
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTime"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_restaurant_24"
+                app:tint="@color/black" />
+            <TextView
+                android:id="@+id/tvCategoryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/category"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tvTimeLabel"
+            android:id="@+id/tvCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/llCategory"
+            app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"
-            android:text="@string/required_time"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
+            tools:text="Dinner"></TextView>
 
-    <TextView
-        android:id="@+id/tvTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/llTime"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
-        tools:text="15 minutes"></TextView>
-
-    <LinearLayout
-        android:id="@+id/llCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tvTime"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/llRecipe"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_restaurant_24"
-            app:tint="@color/black" />
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/tvCategory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_auto_stories_24"
+                app:tint="@color/black" />
+            <TextView
+                android:id="@+id/tvRecipeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/recipe"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
         <TextView
-            android:id="@+id/tvCategoryLabel"
+            android:id="@+id/tvRecipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/llRecipe"
+            app:layout_constraintStart_toStartOf="parent"
             android:textColor="@color/black"
-            android:text="@string/category"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/llCategory"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
-        tools:text="Dinner"></TextView>
-
-    <LinearLayout
-        android:id="@+id/llRecipe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@id/tvCategory"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_auto_stories_24"
-            app:tint="@color/black" />
-        <TextView
-            android:id="@+id/tvRecipeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="@string/recipe"
-            android:textSize="15sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/llRecipe"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/black"
-        tools:text="Dinner"></TextView>
+            tools:text="Recipe description"></TextView>
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
