@@ -17,6 +17,10 @@ class RecipeViewModel() : ViewModel(){
         return repository.getById(id)
     }
 
+    fun getCountByCategory(category: RecipeCategory): Int{
+        return repository.getCountByCategory(mapCategoryToString(category))
+    }
+
     fun insert(recipe: Recipe){
         repository.insert(recipe)
     }
@@ -31,5 +35,14 @@ class RecipeViewModel() : ViewModel(){
 
     fun getLiveData() : LiveData<List<Recipe>> {
         return recipeList
+    }
+
+    private fun mapCategoryToString(category: RecipeCategory): String{
+        return when(category){
+            RecipeCategory.BREAKFAST -> "BREAKFAST"
+            RecipeCategory.LUNCH -> "LUNCH"
+            RecipeCategory.DINNER -> "DINNER"
+            RecipeCategory.DESSERT -> "DESSERT"
+        }
     }
 }

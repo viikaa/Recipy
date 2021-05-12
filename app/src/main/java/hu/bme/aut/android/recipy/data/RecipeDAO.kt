@@ -11,6 +11,9 @@ interface RecipeDAO {
     @Query("SELECT * FROM recipe WHERE id=:id")
     fun getById(id: Long): Recipe
 
+    @Query("SELECT COUNT(*) FROM recipe WHERE category=:category")
+    fun getCountByCategory(category: String): Int
+
     @Insert
     suspend fun insert(recipe: Recipe): Long
 

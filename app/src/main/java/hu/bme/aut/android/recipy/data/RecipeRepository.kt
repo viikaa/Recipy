@@ -19,6 +19,12 @@ class RecipeRepository(context: Context) : CoroutineScope by MainScope() {
         }
     }
 
+    fun getCountByCategory(category: String) : Int = runBlocking{
+        withContext(Dispatchers.IO){
+            recipeDao.getCountByCategory(category)
+        }
+    }
+
     fun update(recipe: Recipe) = launch{
         withContext(Dispatchers.IO) {
             recipeDao.update(recipe)

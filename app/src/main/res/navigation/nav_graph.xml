@@ -40,4 +40,9 @@
             android:id="@+id/action_viewRecipeFragment_to_RecipeListFragment"
             app:destination="@id/RecipeListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chartFragment"
+        android:name="hu.bme.aut.android.recipy.fragments.ChartFragment"
+        android:label="fragment_chart"
+        tools:layout="@layout/fragment_chart" />
 </navigation>
