@@ -15,7 +15,7 @@ import hu.bme.aut.android.recipy.adapter.RecipeAdapter
 import hu.bme.aut.android.recipy.data.Recipe
 import hu.bme.aut.android.recipy.data.RecipeViewModel
 import hu.bme.aut.android.recipy.databinding.FragmentRecipeListBinding
-import hu.bme.aut.android.shoppinglist.fragments.RatingFragment
+import hu.bme.aut.android.recipy.fragments.RatingFragment
 import kotlinx.coroutines.*
 
 /**
@@ -64,8 +64,10 @@ class RecipeListFragment :
         ratingFragment.show(requireActivity().supportFragmentManager, RatingFragment.TAG)
     }
 
-    override fun onItemRemoved(recipe: Recipe, position: Int) {
-        recipeViewModel.delete(recipe)
+    override fun onItemRemoved(id: Long) {
+        val deleteFragment = DeleteFragment()
+        deleteFragment.arguments = bundleOf("id" to id)
+        deleteFragment.show(requireActivity().supportFragmentManager, RatingFragment.TAG)
     }
 
     override fun onItemClick(id: Long) {

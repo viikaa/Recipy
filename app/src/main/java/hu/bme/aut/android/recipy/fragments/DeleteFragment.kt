@@ -2,27 +2,29 @@ package hu.bme.aut.android.recipy.fragments
 
 import android.app.Dialog
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import hu.bme.aut.android.recipy.R
 import hu.bme.aut.android.recipy.data.Recipe
 import hu.bme.aut.android.recipy.data.RecipeViewModel
+import hu.bme.aut.android.recipy.databinding.FragmentDeleteBinding
 import hu.bme.aut.android.recipy.databinding.FragmentRatingBinding
 
-
-class RatingFragment : DialogFragment() {
+class DeleteFragment : DialogFragment() {
     companion object {
-        const val TAG = "RatingFragment"
+        const val TAG = "DeleteFragment"
     }
 
-
-    private lateinit var binding: FragmentRatingBinding
+    private lateinit var binding: FragmentDeleteBinding
     private val recipeViewModel : RecipeViewModel by activityViewModels()
     private lateinit var currentRecipe: Recipe
-    private var recipeRating: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,21 +33,15 @@ class RatingFragment : DialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        binding = FragmentRatingBinding.inflate(LayoutInflater.from(context))
-        binding.rbRecipeRating.rating = currentRecipe.rating.toFloat()
-
-            binding.rbRecipeRating.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            recipeRating = rating.toInt()
-        }
+        binding = FragmentDeleteBinding.inflate(LayoutInflater.from(context))
 
         return AlertDialog.Builder(requireActivity())
-                .setTitle("Rate ${currentRecipe.name} by ${currentRecipe.author}")
+                .setTitle("Delete ${currentRecipe.name} by ${currentRecipe.author} ?")
                 .setView(binding.root)
                 .setPositiveButton("ok") { dialogInterface, i ->
-                    recipeRating?.let {
-                        currentRecipe.rating = it
-                        recipeViewModel.update(currentRecipe)
-                    }
+                    recipeViewModel.delete(currentRecipe)
+                    if(findNavController().currentDestination?.id != R.id.RecipeListFragment)
+                        findNavController().navigate(R.id.RecipeListFragment)
                 }
                 .setNegativeButton("cancel", null)
                 .create()

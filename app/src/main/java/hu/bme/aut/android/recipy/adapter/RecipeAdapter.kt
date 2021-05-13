@@ -35,7 +35,7 @@ class  RecipeAdapter(
             listener.onItemClick(recipe.id)
         }
         holder.binding.ibRemove.setOnClickListener {
-            listener.onItemRemoved(recipe, holder.adapterPosition)
+            listener.onItemRemoved(recipe.id)
         }
         holder.binding.ibEdit.setOnClickListener {
             listener.onItemEdit(recipe.id)
@@ -57,25 +57,15 @@ class  RecipeAdapter(
 
     override fun getItemCount(): Int = items.size
 
-    fun addItem(item: Recipe) {
-        items.add(item)
-        notifyItemInserted(items.size - 1)
-    }
-
     fun update(shoppingItems: List<Recipe>) {
         items.clear()
         items.addAll(shoppingItems)
         notifyDataSetChanged()
     }
 
-    fun remove(item: Recipe, position: Int){
-        items.remove(item)
-        notifyItemRemoved(position)
-    }
-
     interface RecipeClickListener {
         fun onItemClick(id: Long)
-        fun onItemRemoved(item: Recipe, position: Int)
+        fun onItemRemoved(id: Long)
         fun onItemEdit(id: Long)
         fun onItemRate(id: Long)
     }
