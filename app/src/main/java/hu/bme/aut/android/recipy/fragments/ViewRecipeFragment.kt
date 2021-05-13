@@ -42,7 +42,6 @@ class ViewRecipeFragment : Fragment() {
             val deleteFragment = DeleteFragment()
             deleteFragment.arguments = bundleOf("id" to currentRecipe.id)
             deleteFragment.show(requireActivity().supportFragmentManager, RatingFragment.TAG)
-//            findNavController().navigate(R.id.action_viewRecipeFragment_to_RecipeListFragment)
         }
 
         return binding.root
