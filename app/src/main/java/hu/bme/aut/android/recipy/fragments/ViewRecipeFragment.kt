@@ -61,6 +61,7 @@ class ViewRecipeFragment : Fragment() {
             RecipeCategory.DINNER -> categories[2]
             RecipeCategory.DESSERT -> categories[3]
         }
+        binding.tvRating.text = currentRecipe.rating.toString()
         binding.tvRecipe.text = currentRecipe.description
 
     }

@@ -30,5 +30,6 @@
 
     <string name="minutes">%d minutes</string>
     <string name="noRecipeChartText">There are no recipes in database :(</string>
+    <string name="rating">Rating</string>
 
 </resources>
