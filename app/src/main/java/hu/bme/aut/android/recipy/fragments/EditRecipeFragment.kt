@@ -15,9 +15,6 @@ import hu.bme.aut.android.recipy.data.RecipeViewModel
 import hu.bme.aut.android.recipy.databinding.FragmentEditRecipeBinding
 import kotlinx.coroutines.*
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class EditRecipeFragment :
         Fragment(),
         CoroutineScope by MainScope() {
